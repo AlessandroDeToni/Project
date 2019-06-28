@@ -18,7 +18,6 @@ public class MyController {
 	@RequestMapping("/greeting") //The @RequestMapping annotation ensures that HTTP requests to /greeting are mapped to the greeting() method.
 	    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) { //permette che scrivendo ?name=qualcosa dopo /greeting nella richiesta %s diventi qualcosa. 
 	        return new Greeting(counter.incrementAndGet(), String.format(template, name));
-
 	
 	}
 }
