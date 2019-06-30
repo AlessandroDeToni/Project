@@ -12,11 +12,12 @@ public class Project1807Application {
 		SpringApplication.run(Project1807Application.class, args); //lancia Spring
 		
 		//mi occupo del download dei dati usando la classe DatasetDownload
-		
 		DatasetDownloader downloader = new DatasetDownloader ("http://data.europa.eu/euodp/data/api/3/action/package_show?"
 				+ "id=REmcPlVE1Wjrosy3cMhZbg", "Euro.csv");
 
-	
+		//trasforma le virgole in ";" in modo da facilitare l'immissione in lista del file scaricato
+		DatasetModifier dm = new DatasetModifier();
+		dm.replaceComma(); 
 	}		
 }
 	
