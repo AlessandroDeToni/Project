@@ -1,5 +1,7 @@
 package com.example.demo;
-
+/**
+ * libreria per leggere gli stream
+ */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,11 +17,27 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
+/**
+ * effettua il download del dataset all'avvio dell'applicazione
+ * 
+ * @author Elia
+
+ */
 public class DatasetDownloader {
 	
-	String url; //conterrà l'url del dataset
-	String fileName; //rappresenta il nome del file .csv che verrà creato
+	String url;
+	String fileName;  
 	
+	/**
+	 * costruttore della classe
+	 * @param url  url del dataset
+     * @param fileName  nome del file .csv che verrà creato
+     * <p>
+     * genero un oggetto di tipo stream{@link InputStream} per prendere in input i dati dalla connessione url{@link URL.openConnection#}
+     * @throws Exception  
+     * @throws IOException | ParseException  gestione problemi di parsing
+     * commento da finire
+	 */
 	 DatasetDownloader(String url, String fileName){
 	try {
 		
