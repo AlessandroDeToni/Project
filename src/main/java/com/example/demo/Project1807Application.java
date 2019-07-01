@@ -36,8 +36,6 @@ public class Project1807Application {
 		//trasforma le virgole in ";" in modo da facilitare l'immissione in lista del file scaricato
 				DatasetModifier dm = new DatasetModifier();
 				dm.replaceComma(); 
-
-	
 	}		
 }
 	
