@@ -3,6 +3,7 @@ package com.example.demo;
  * libreria per leggere gli stream
  */
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,6 +13,7 @@ import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -26,7 +28,8 @@ import org.json.simple.parser.ParseException;
 public class DatasetDownloader {
 	
 	String url;
-	String fileName;  
+	String fileName;
+	
 	
 	/**
 	 * costruttore della classe
@@ -36,11 +39,12 @@ public class DatasetDownloader {
      * genero un oggetto di tipo stream{@link InputStream} per prendere in input i dati dalla connessione url{@link URL.openConnection#}
      * @throws Exception  
      * @throws IOException | ParseException  gestione problemi di parsing
-     * commento da finire
+     * 
 	 */
 	 DatasetDownloader(String url, String fileName){
 	try {
 		
+		 
 		this.url = url;
 		this.fileName = fileName;
 		
@@ -50,6 +54,7 @@ public class DatasetDownloader {
 		
 		 String data = "";
 		 String line = "";
+		
 		 try {
 		   InputStreamReader inR = new InputStreamReader( in );
 		   BufferedReader buf = new BufferedReader( inR );
@@ -61,36 +66,36 @@ public class DatasetDownloader {
 		 } finally {
 		   in.close();
 		 }
-		JSONObject obj = (JSONObject) JSONValue.parseWithException(data); 
-		JSONObject objI = (JSONObject) (obj.get("result"));
-		JSONArray objA = (JSONArray) (objI.get("resources"));
+		JSONObject obj_tot = (JSONObject) JSONValue.parseWithException(data); //esegue il parsing del JSON in un oggetto
+		JSONObject objR = (JSONObject) (obj_tot.get("result")); 			  //cerca "result" nel JSON parsato e lo inserisce in objR
+		JSONArray objA = (JSONArray) (objR.get("resources")); 			      //cerca le "resources" all'interno delle graffe di "result" contenuto in objR e lo inserisce in objA
 		
-		for(Object o: objA){
-		    if ( o instanceof JSONObject ) {
-		        JSONObject o1 = (JSONObject)o; 
-		        String format = (String)o1.get("format");
-		        String urlD = (String)o1.get("url");
-		        System.out.println(format + " | " + urlD);
-		        if(format.equals("http://publications.europa.eu/resource/authority/file-type/CSV")) {
-		        	download(urlD, this.fileName);
+		for(Object ob: objA){ 											//scorre objA
+		    if ( ob instanceof JSONObject ) { 
+		        JSONObject ob1 = (JSONObject)ob; 				
+		        String format = (String)ob1.get("format"); 				//inserisce il valore del campo format all'interno di format
+		        URL url_todownload = new URL((String)ob1.get("url"));	//fa lo stesso ma con l'url corrispondente
+		        
+		        if(format.equals("http://publications.europa.eu/resource/authority/file-type/CSV")) //questo è il format che vogliamo per il download
+		        	{  
+		        		File f = new File(this.fileName); 
+		        		FileUtils.copyURLToFile(url_todownload, f, 10000, 10000); /*esegue il download del file: se è già esistente lo sovrascrive, altrimenti ne crea uno nuovo.
+		        																	i due parametri finali stabiliscono i millisecondi che il metodo copyURLtoFile attenderà se:
+		        																	1) non riesce a stabilire nessuna connessione con la sorgente del file
+		        																	2) non riesce a leggere dati dalla sorgente del file*/
+		        		System.out.println("Download eseguito!");
+		        	}
 		        }
 		    }
-		}
-		System.out.println( "OK" );
-	} catch (IOException | ParseException e) {
-		e.printStackTrace();
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
-	}
+			} catch (IOException | ParseException e) {
+					e.printStackTrace();
+			} catch (Exception e) {
+					e.printStackTrace();
+			} finally {
+				
 
-
-
-public static void download(String url, String fileName) throws Exception {
-   try (InputStream in = URI.create(url).toURL().openStream()) {
-       Files.copy(in, Paths.get(fileName));
-   }
+	 }
 }
-
-
 }
+	
+
