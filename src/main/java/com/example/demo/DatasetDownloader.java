@@ -25,6 +25,9 @@ import org.json.simple.parser.ParseException;
  * @author Elia
 
  */
+
+
+//TODO gestire eccezione connessione assente
 public class DatasetDownloader {
 	
 	String url;
