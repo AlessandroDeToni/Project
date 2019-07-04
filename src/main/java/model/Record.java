@@ -1,10 +1,10 @@
-	package com.example.demo;
+package model;
+
 /**
  * classe che modella i record del dataset
  * @author Elia
  *
  */
-
 
 public class Record{
 
@@ -16,7 +16,7 @@ public class Record{
 		private String geo;
 		private String unit;
 		private String instrtimeperiod;
-		private int[] year  = new int[18]; 
+		private double[] year  = new double[18]; 
 		
 		/**
 		 * 
@@ -26,13 +26,13 @@ public class Record{
 		 * @param instrtimeperiodin
 		 * @param yearin  è un array statico, dato che la dimensione in input sarà sampre costante
 		 */
-		public Record(String freqin, String geoin, String unitin, String instrtimeperiodin, int[] yearin) {
+		public Record(String freqin, String geoin, String unitin, String instrtimeperiodin, double[] yearin) {
 			
 		this.freq=freqin;
 		this.geo=geoin;
 		this.unit=unitin;
 		this.instrtimeperiod=instrtimeperiodin;
-		System.arraycopy(yearin, 0, this.year, 0, 18);
+		System.arraycopy(yearin, 0, this.year, 0, 17);
 			
 		}
 		/**
@@ -54,7 +54,7 @@ public class Record{
 		public String getInstrtimeperiod() {   
 			return this.instrtimeperiod;
 		}
-		public int[] getYear() {
+		public double[] getYear() {
 			return this.year;
 		}
 	}
