@@ -36,24 +36,37 @@ public class Record{
 			
 		}
 		/**
-		 * definisco i metodi get per accedere alle variabili private
+		 * metodi get per accedere alle variabili private
 		 * 
 		 */
 		public String getFreq() {
 			return this.freq;
 		}
 	    
+		/**
+	     * @return restituisce il membro geo
+	     */
 		public String getGeo() {
 			return this.geo;
 		}
-		
+		 
+		/** 
+	     * @return restituisce il membro unit
+	     */
 		public String getUnit() {
 			return this.unit;
 		}
 		
+		/** 
+	     * @return restituisce il membro Instrtimeperiod
+	     */
 		public String getInstrtimeperiod() {   
 			return this.instrtimeperiod;
 		}
+		
+		/** 
+	     * @return restituisce il membro year
+	     */
 		public double[] getYear() {
 			return this.year;
 		}

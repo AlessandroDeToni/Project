@@ -5,7 +5,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
+/**
+ * classe che crea una lista leggendo i dati dal file scaricato
+ * 
+ * @author Alessandro
+ *
+ */
 public class Lista {
 
 		private String line;
@@ -14,6 +19,12 @@ public class Lista {
 		
 		public Lista() {}
 		
+		/**
+		 * creaLista prende in input il nome del file da cui vogliamo leggere i dati e li inserisce in una lista
+		 * di oggetti del tipo Record (chiaramente i campi del file devono essere concordi con quelli della classe Record).
+		 * 
+		 * @param filename
+		 */
 		public void creaLista(String filename) {
 			File f =new File(filename);   //da passare al buffer
 			try {
@@ -26,7 +37,7 @@ public class Lista {
 				for(int j=4, counter=0; j<21 || counter<18; j++, counter++) {
 					k[counter]=java.lang.Double.valueOf(stringarr[j]);
 				}
-				data.add(new Record(stringarr[0], stringarr[1], stringarr[2], stringarr[3], k ));
+				this.data.add(new Record(stringarr[0], stringarr[1], stringarr[2], stringarr[3], k )); //riempie il membro "data" della classe Lista
 			}	
 			}
 			
@@ -39,6 +50,14 @@ public class Lista {
 			
 		    }
 	
+		}
+		
+		/**
+		 * 
+		 * @return restituisce la lista di oggetti Record
+		 */
+		public ArrayList<Record> getList (){ 
+			return this.data;
 		}
 
 }		
