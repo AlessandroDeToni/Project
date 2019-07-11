@@ -13,24 +13,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 /**
-* classe che controlla il flusso dei dati
-* @author Alessandro 
-* 
-*/
+ * classe che controlla il flusso dei dati
+ * @author Alessandro 
+ * 
+ */
 public class MyController {
-	
+
 	/**
 	 * metodo che risponde alla richiesta di visione totale della lista.
 	 * 
 	 * @return viene restituita la lista comprendente tutti i dati del file in formato JSON.
 	 */
 	@RequestMapping(value = "/ViewAllList", method = RequestMethod.GET)
-    public ArrayList<Record> retrieveAllRecords() {
+	public ArrayList<Record> retrieveAllRecords() {
 
-        Lista Mylist = new Lista();
-        Mylist.creaLista("Euro.csv"); //crea la lista leggendo dal file
-        
-        return Mylist.getList();
-    }
+		Lista Mylist = new Lista();
+		Mylist.creaLista("Euro.csv"); //crea la lista leggendo dal file
+
+		return Mylist.getList();
+	}
 }
 
