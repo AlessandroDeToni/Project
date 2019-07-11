@@ -8,7 +8,7 @@ import java.util.Collection;
 
 
 public class RichiestaUser {
-
+//controllare se non legge la prima riga
 	public Collection<Object> getCampo(Lista in, String fieldName) {
 		Collection<Object> out = new ArrayList<Object>();
 		for(Object record :in.getList()) {
