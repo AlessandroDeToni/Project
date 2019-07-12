@@ -70,6 +70,14 @@ public class Record{
 		public double[] getYear() {
 			return this.year;
 		}
+		/**
+		 * overload del metodo, restituisce l'oggetto Double dell'anno specificato
+		 * @param year
+		 * @return
+		 */
+		public Double getYear(int year) {
+			return (Double)this.year[year];
+		}
 	}
 
 	
