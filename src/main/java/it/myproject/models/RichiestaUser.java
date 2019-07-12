@@ -1,4 +1,4 @@
-package model;
+package it.myproject.models;
 import java.awt.List;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

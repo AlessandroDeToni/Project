@@ -1,4 +1,4 @@
-package model;
+package it.myproject.models;
 
 /**
  * classe che modella i record del dataset

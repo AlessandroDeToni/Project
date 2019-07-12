@@ -1,4 +1,4 @@
-package model;
+package it.myproject.models;
 
 public class ElementoUnico {
 	private String elemento;
