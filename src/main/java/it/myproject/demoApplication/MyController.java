@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.myproject.models.*;
+import it.myproject.stats.ElementiUnici;
+import it.myproject.stats.ElementoUnico;
 
 @RestController
 /**

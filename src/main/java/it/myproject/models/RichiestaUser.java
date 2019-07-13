@@ -15,7 +15,7 @@ public class RichiestaUser {
 	 * @param fieldName nome del campo di cui si vuole una collection
 	 * @return Restituisce una collection di oggetti facenti parte del campo del dataset selezionato.
 	 */
-	public Collection<Object> getCampo(Lista in, String fieldName) {
+	public static Collection<Object> getCampo(Lista in, String fieldName) {
 		
 		Collection<Object> out = new ArrayList<Object>();
 		
