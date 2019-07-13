@@ -20,24 +20,24 @@ public class Record{
 		
 		/**
 		 * 
-		 * @param freqin
-		 * @param geoin
-		 * @param unitin
-		 * @param instrtimeperiodin
-		 * @param yearin  è un array statico, dato che la dimensione in input sarà sampre costante
+		 * @param freq
+		 * @param geo
+		 * @param unit
+		 * @param instrtimeperiod
+		 * @param year  è un array statico, dato che la dimensione in input sarà sampre costante
 		 */
-		public Record(String freqin, String geoin, String unitin, String instrtimeperiodin, double[] yearin) {
+		public Record(String freq, String geo, String unit, String instrtimeperiod, double[] yearin) {
 			
-		this.freq=freqin;
-		this.geo=geoin;
-		this.unit=unitin;
-		this.instrtimeperiod=instrtimeperiodin;
+		this.freq=freq;
+		this.geo=geo;
+		this.unit=unit;
+		this.instrtimeperiod=instrtimeperiod;
 		System.arraycopy(yearin, 0, this.year, 0, 17);
 			
 		}
+		
 		/**
-		 * metodi get per accedere alle variabili private
-		 * 
+		 *@return restituisce il membro freq 
 		 */
 		public String getFreq() {
 			return this.freq;

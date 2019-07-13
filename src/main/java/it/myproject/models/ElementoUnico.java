@@ -1,27 +1,25 @@
 package it.myproject.models;
 
+/**
+ * classe che modella un elemento che appartiene a uno dei campi del dataset
+ * @author Alessandro
+ *
+ */
 public class ElementoUnico {
-	private String elemento;
+	
 	private int ripetizioni;
+	private String elemento;
 
-	public ElementoUnico(String elementoIn, int ripetizioniIn) {
-		this.elemento=elementoIn;
-		this.ripetizioni=ripetizioniIn;
-	}
-
-	public void setElemento(String elementoIn) {
-		this.elemento=elementoIn;
-	}
-
-	public String getElemento() {
-		return this.elemento;
-	}
-
-	public void aumRipetizioni() {
-		this.ripetizioni++;
+	public ElementoUnico(String elemento, int ripetizioni) {
+		this.elemento = elemento;
+		this.ripetizioni = ripetizioni;
 	}
 
 	public int getRipetizioni() {
 		return this.ripetizioni;
+	}
+
+	public String getElemento() {
+		return elemento;
 	}
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.myproject.models.*;
@@ -29,5 +30,15 @@ public class MyController {
 
 		return Mylist.getList();
 	}
+	
+	@RequestMapping(value = "/ElementiUnici", method = RequestMethod.GET)
+	public ArrayList<ElementoUnico> elemCounter (@RequestParam(name = "fieldname") String fieldname) {
+		
+		Lista Mylist = new Lista();
+		Mylist.creaLista("Euro.csv"); //crea la lista leggendo dal file
+		
+		ElementiUnici el = new ElementiUnici(Mylist, fieldname);
+		return el.getList();
+	} 
+	
 }
-

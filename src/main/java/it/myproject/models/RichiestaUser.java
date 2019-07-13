@@ -1,5 +1,5 @@
 package it.myproject.models;
-import java.awt.List;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -8,15 +8,24 @@ import java.util.Collection;
 
 
 public class RichiestaUser {
-	//controllare se non legge la prima riga
+	
+	/**
+	 * 
+	 * @param in Lista in ingresso
+	 * @param fieldName nome del campo di cui si vuole una collection
+	 * @return Restituisce una collection di oggetti facenti parte del campo del dataset selezionato.
+	 */
 	public Collection<Object> getCampo(Lista in, String fieldName) {
+		
 		Collection<Object> out = new ArrayList<Object>();
+		
 		for(Object record :in.getList()) {
 			try{
-
-				Method m = record.getClass().getMethod("get"+fieldName.substring(0, 1).toUpperCase()+fieldName.substring(1),null);
+				
+				//crea un metodo get 
+				Method m = record.getClass().getMethod("get"+fieldName.substring(0, 1).toUpperCase()+fieldName.substring(1),null); 
 				try {
-					Object campo= m.invoke(record);
+					Object campo = m.invoke(record);
 					out.add(campo); 
 				}
 				catch(IllegalAccessException e) {
