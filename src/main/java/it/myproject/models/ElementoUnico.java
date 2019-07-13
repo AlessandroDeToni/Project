@@ -1,4 +1,4 @@
-package it.myproject.stats;
+package it.myproject.models;
 
 /**
  * classe che modella un elemento che appartiene a uno dei campi del dataset

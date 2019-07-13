@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 
+import it.myproject.models.ElementoUnico;
 import it.myproject.models.Lista;
 import it.myproject.models.RichiestaUser;
 

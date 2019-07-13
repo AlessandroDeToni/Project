@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import it.myproject.models.*;
 import it.myproject.stats.ElementiUnici;
-import it.myproject.stats.ElementoUnico;
 
 @RestController
 /**
@@ -31,6 +30,14 @@ public class MyController {
 		Mylist.creaLista("Euro.csv"); //crea la lista leggendo dal file
 
 		return Mylist.getList();
+	}
+	
+	@RequestMapping(value = "/MetaDati", method = RequestMethod.GET)
+	public ArrayList<MetaData> retrieveMetadata () {
+		
+		MetaDataList mList = new MetaDataList();
+		mList.creaLista("Euro.csv");
+		return mList.getList();
 	}
 	
 	@RequestMapping(value = "/ElementiUnici", method = RequestMethod.GET)
