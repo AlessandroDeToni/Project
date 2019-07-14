@@ -3,8 +3,8 @@ package it.myproject.filter;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import it.myproject.models.Lista;
 import it.myproject.models.RichiestaUser;
+import it.myproject.models.lists.DataList;
 
 
 
@@ -49,7 +49,7 @@ public class FilterUtils {
 
 
 	//collection<T> è la classe base per una collezione generica
-	public Collection<Object> Select (Lista src, String fieldName, String operator, Object value){
+	public Collection<Object> Select (DataList src, String fieldName, String operator, Object value){
 
 		Collection<Object> out = new ArrayList<Object>();
 		Collection<Object> listaIn = RichiestaUser.getCampo(src, fieldName);
@@ -81,7 +81,7 @@ public class FilterUtils {
 
 	//devo fare un getyear per prendere i double dell'anno richiesto
 
-	public Collection<Object> Select (Lista src, String fieldName, String operator, Object value1, Object value2){
+	public Collection<Object> Select (DataList src, String fieldName, String operator, Object value1, Object value2){
 
 		Collection<Object> out = new ArrayList<Object>();
 		Collection<Object> listaIn = RichiestaUser.getCampo(src, fieldName);

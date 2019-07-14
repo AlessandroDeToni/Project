@@ -5,6 +5,8 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import it.myproject.models.lists.DataList;
+import it.myproject.models.lists.*;
 
 
 public class RichiestaUser {
@@ -15,7 +17,7 @@ public class RichiestaUser {
 	 * @param fieldName nome del campo di cui si vuole una collection
 	 * @return Restituisce una collection di oggetti facenti parte del campo del dataset selezionato.
 	 */
-	public static Collection<Object> getCampo(Lista in, String fieldName) {
+	public static Collection<Object> getCampo(DataList in, String fieldName) {
 		
 		Collection<Object> out = new ArrayList<Object>();
 		

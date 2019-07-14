@@ -17,7 +17,7 @@ public class MetaData {
 	 * @param alias nome con cui il campo viene chiamato nel programma
 	 * @param sourceField nome con cui il campo è chiamato nel dataset
 	 */
-	MetaData(String type, String alias, String sourceField) {
+	public MetaData(String type, String alias, String sourceField) {
 		
 		this.type = type;
 		this.alias = alias;

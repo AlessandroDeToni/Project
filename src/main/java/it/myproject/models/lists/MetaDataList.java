@@ -1,4 +1,4 @@
-package it.myproject.models;
+package it.myproject.models.lists;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import it.myproject.models.*;
 
 /**
  * Classe che gestisce una lista di metadati
@@ -31,14 +32,16 @@ public class MetaDataList {
 			File f =new File(filename); 
 			BufferedReader in = new BufferedReader(new FileReader(f));
 			String line = in.readLine(); //leggo la prima linea per ottenere i sourceFields 
+			in.close();
 			
 			Field[] fields = Record.class.getDeclaredFields(); //inserisci le variabili di Record in un array di Field
 			int i = 0;
 			for (String s : line.split(";")) {
 				
-				if (i >= 4) { //gestisce l'ultimo campo (è un array)
-					String type = fields[4].getType().getComponentType().getName();
-					String alias = fields[4].getName()+"["+(i-4)+"]"; //restituisce componente per componente il campo year
+				if (i >= (fields.length-1)) { /*gestisce l'ultimo campo (è un array), era sufficiente che i fosse >= 4 
+											    visto il dataset che abbiamo. ma scritto in questo modo ci assicura una maggiore versalità in futuro*/
+					String type = fields[fields.length-1].getType().getComponentType().getName();
+					String alias = fields[fields.length-1].getName()+"["+(i-(fields.length-1))+"]"; //restituisce componente per componente il campo year
 					md.add(new MetaData(type,alias,s));
 					i++;
 					
@@ -63,7 +66,7 @@ public class MetaDataList {
 	 * 
 	 * @return restituisce la lista di metadati
 	 */
-	public ArrayList<MetaData> getList(){
+	public ArrayList<MetaData> getList() throws NullPointerException{
 		return this.md;
 	}
 }

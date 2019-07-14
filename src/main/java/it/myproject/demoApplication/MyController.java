@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.myproject.models.*;
+import it.myproject.models.lists.DataList;
+import it.myproject.models.lists.MetaDataList;
 import it.myproject.stats.ElementiUnici;
 
 @RestController
@@ -26,7 +28,7 @@ public class MyController {
 	@RequestMapping(value = "/ViewAllList", method = RequestMethod.GET)
 	public ArrayList<Record> retrieveAllRecords() {
 
-		Lista Mylist = new Lista();
+		DataList Mylist = new DataList();
 		Mylist.creaLista("Euro.csv"); //crea la lista leggendo dal file
 
 		return Mylist.getList();
@@ -43,10 +45,11 @@ public class MyController {
 	@RequestMapping(value = "/ElementiUnici", method = RequestMethod.GET)
 	public ArrayList<ElementoUnico> elemCounter (@RequestParam(name = "fieldname") String fieldname) {
 		
-		Lista Mylist = new Lista();
+		DataList Mylist = new DataList();
 		Mylist.creaLista("Euro.csv"); //crea la lista leggendo dal file
 		
-		ElementiUnici el = new ElementiUnici(Mylist, fieldname);
+		ElementiUnici el = new ElementiUnici(Mylist);
+		el.creaLista(fieldname);
 		return el.getList();
 	} 
 	

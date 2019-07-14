@@ -1,23 +1,25 @@
-package it.myproject.models;
+package it.myproject.models.lists;
 
 import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import it.myproject.models.*;
 /**
  * classe che crea una lista leggendo i dati dal file scaricato
  * 
  * @author Alessandro
  *
  */
-public class Lista {
+public class DataList implements Lista{
 
 	private String line;
 	private ArrayList<Record> data = new ArrayList<>(); //lista
 	private BufferedReader in;
 
-	public Lista() {}
+	public DataList() {}
 
 	/**
 	 * creaLista prende in input il nome del file da cui vogliamo leggere i dati e li inserisce in una lista
@@ -56,7 +58,8 @@ public class Lista {
 	 * 
 	 * @return restituisce la lista di oggetti Record
 	 */
-	public ArrayList<Record> getList (){ 
+	
+	public ArrayList<Record> getList () throws NullPointerException{ 
 		return this.data;
 	}
 

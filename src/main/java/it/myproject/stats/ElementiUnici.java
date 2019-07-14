@@ -6,8 +6,9 @@ import java.util.Collections;
 import java.util.HashSet;
 
 import it.myproject.models.ElementoUnico;
-import it.myproject.models.Lista;
 import it.myproject.models.RichiestaUser;
+import it.myproject.models.lists.DataList;
+import it.myproject.models.lists.Lista;
 
 /**
  * 
@@ -17,43 +18,51 @@ import it.myproject.models.RichiestaUser;
  * @author Alessandro
  *
  */
-public class ElementiUnici extends RichiestaUser {
+public class ElementiUnici implements Lista{
 	
 	private ArrayList<ElementoUnico> elementi;
+	private DataList in;
+	
+	
+	public ElementiUnici(DataList in) {
+		this.in = in;
+	}
 	
 	/**
 	 * 
 	 * @param in
 	 * @param fieldName
 	 * 
-	 * Costruisce una lista di oggetti ElementoUnico
+	 * Crea una lista di oggetti "ElementoUnico"
+	 * @see ElementoUnico
 	 */
-	public ElementiUnici(Lista in, String fieldName) {
+	public void creaLista (String fieldName) {
 		try {
-			
-			Collection<Object> campoIn = this.getCampo(in, fieldName); //contiene la lista di elementi appartenenti al campo scelto
-			
+
+			Collection<Object> campoIn = RichiestaUser.getCampo(in, fieldName); //contiene la lista di elementi appartenenti al campo scelto
+
 			elementi = new ArrayList<>();
 			HashSet<Object> noDupl = new HashSet<Object>(); // creo un set in cui inserirò gli elementi(che per proprietà dell'HashSet saranno unici)
-			
+
 			for(Object item : campoIn) {
-				
+
 				noDupl.add(item); //inserisce gli elementi nel set
 			}
-			
-			
+
+
 			for (Object item : noDupl) {
-				
+
 				int occurencies = Collections.frequency(campoIn, item); //conta quante volte l'elemento (identificato con item) è presente in CampoIn
 				ElementoUnico el = new ElementoUnico((String)item, occurencies);
 				elementi.add(el);
-				
+
 			}	
-			
+
 		}
 		catch (IllegalArgumentException e) {
 			e.printStackTrace();
-			}
+		}
+
 	}
 	
 	/**
@@ -61,7 +70,7 @@ public class ElementiUnici extends RichiestaUser {
 	 * @return Array di oggetti ElementoUnico, cioé un array contenente gli elementi che compaiono nel data set e le rispettive occorrenze
 	 * @throws NullPointerException
 	 */
-	public ArrayList<ElementoUnico> getList() {
+	public ArrayList<ElementoUnico> getList() throws NullPointerException{
 		return this.elementi;
 	}
 	
