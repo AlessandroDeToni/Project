@@ -78,6 +78,16 @@ public class Record{
 		public Double getYear(int year) {
 			return (Double)this.year[year];
 		}
+		
+		/**
+		 * 
+		 * @param anno specifico cercato
+		 * @return
+		 */
+		public double getSpecYear(int i) {
+			i = i-2000;
+			return this.year[i];
+		}
 	}
 
 	

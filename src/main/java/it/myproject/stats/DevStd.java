@@ -3,10 +3,13 @@ package it.myproject.stats;
 import java.util.ArrayList;
 
 public class DevStd {
-	public double calcolo(ArrayList<Double> campoIn) {
+	
+	public static double calcolo(ArrayList<Double> campoIn) {
+		
 		double lenght=campoIn.size();
 		double somma=0;
 		double sommaQuad=0;
+		
 		for(double item : campoIn) {
 			somma=somma+item;
 			sommaQuad=sommaQuad+Math.pow(item, 2);
