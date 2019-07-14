@@ -56,7 +56,7 @@ public class MetaDataList {
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-		} catch (ArrayIndexOutOfBoundsException e) {
+		} catch (RuntimeException e) {
 			e.printStackTrace();
 		}
 		

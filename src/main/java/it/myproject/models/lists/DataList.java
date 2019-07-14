@@ -44,12 +44,15 @@ public class DataList implements Lista{
 			}
 
 			else {
-				System.out.println();
+				System.out.println("file vuoto");
 			}
 		}
 		catch(IOException i) {
-			System.out.println();
+			i.printStackTrace();
 
+		}
+		catch(RuntimeException e) {
+			e.printStackTrace();
 		}
 
 	}

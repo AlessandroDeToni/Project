@@ -20,11 +20,19 @@ public class Average implements ComputazioneDouble{
 		
 		double sum=0;
 		double count=0;
-		
-		for(double item : campoIn) {
-			sum=sum+item;
-			count++;
+		try{
+			for(double item : campoIn) {
+				sum=sum+item;
+				count++;
+			}
+			return sum/count;}
+		catch(ArithmeticException e) {
+			{ 
+				System.out.println("errore calcolo");
+				e.printStackTrace();
+			}
+
 		}
-		return sum/count;
+		return 0;
 	}
 }
