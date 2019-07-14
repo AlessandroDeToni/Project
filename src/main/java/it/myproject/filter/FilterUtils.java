@@ -22,6 +22,9 @@ public class FilterUtils {
 				else if(operator.contentEquals(">")) {
 					return valueC>thC;
 				}
+				else if(operator.contentEquals("<")) {
+					return valueC<thC;
+				}
 			}	
 			else if(th instanceof String && value instanceof String && operator=="==") {
 				return value==th;
@@ -29,6 +32,7 @@ public class FilterUtils {
 		}
 		catch(IllegalArgumentException e) {
 			System.out.println("argomento non valido/n");
+			e.printStackTrace();
 		}
 		return false;
 	}
@@ -37,15 +41,21 @@ public class FilterUtils {
 
 
 	public static boolean checkLogical(Object field, String operator, Object request1, Object request2) {
-		//farlo anche per la lista di double, con un ovveride
-		if (operator.contentEquals("or")) {
-			return (field.equals(request1) || field.equals(request2));
+
+		try {
+			if (operator.contentEquals("or")) {
+				return (field.equals(request1) || field.equals(request2));
+			}
+			else if (operator.contentEquals("and")) {
+				return (field.equals(request1) && field.equals(request2));
+			}
 		}
-		else if (operator.contentEquals("and")) {
-			return (field.equals(request1) && field.equals(request2));
+		catch(IllegalArgumentException e) {
+			System.out.println("argomento non valido/n");
+			e.printStackTrace();
 		}
 		return false;
-	}	//devo metterci un try/catch per evitare che i parametri siano di tipi diversi
+	}	
 
 
 	//collection<T> è la classe base per una collezione generica
@@ -68,11 +78,9 @@ public class FilterUtils {
 						out.add(item);
 				}
 			}
-			catch (IllegalArgumentException e) {
+			catch (RuntimeException e) {
 				e.printStackTrace();
-			} catch (SecurityException e) {
-				e.printStackTrace();
-			}					
+			} 
 		}
 		return out;
 	}
@@ -93,9 +101,7 @@ public class FilterUtils {
 						out.add(item);	
 				}
 			}
-			catch (IllegalArgumentException e) {
-				e.printStackTrace();
-			} catch (SecurityException e) {
+			catch (RuntimeException e) {
 				e.printStackTrace();
 			}					
 		}

@@ -1,6 +1,9 @@
 package it.myproject.demoApplication;
 
 
+import java.io.IOException;
+
+import org.json.simple.parser.ParseException;
 /**
 / * libreria di Springboot
  */
@@ -22,15 +25,16 @@ import it.myproject.down_pars_modify.DatasetModifier;
 public class Project1807Application {
 
 	public static void main(String[] args) {
-		
+
+
 		//esegue il download del dataset
 		DatasetDownloader downloader = new DatasetDownloader ("http://data.europa.eu/euodp/data/api/3/action/package_show?"
 				+ "id=REmcPlVE1Wjrosy3cMhZbg", "Euro.csv");
-		
-		
-		 // trasforma le virgole in ";" in modo da facilitare l'immissione in lista del file scaricato
-				DatasetModifier dm = new DatasetModifier();
-				dm.replaceComma(); 
+
+
+		// trasforma le virgole in ";" in modo da facilitare l'immissione in lista del file scaricato
+		DatasetModifier dm = new DatasetModifier();
+		dm.replaceComma(); 
 		/**
 		 * lancia Spring
 		 * <p>
@@ -38,7 +42,8 @@ public class Project1807Application {
 		 * @param args
 		 */
 		SpringApplication.run(Project1807Application.class, args); 
-		
-	}		
-}
-	
+	}
+
+}		
+
+

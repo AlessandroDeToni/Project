@@ -7,10 +7,17 @@ public class DevStd {
 		double lenght=campoIn.size();
 		double somma=0;
 		double sommaQuad=0;
-		for(double item : campoIn) {
-			somma=somma+item;
-			sommaQuad=sommaQuad+Math.pow(item, 2);
+		try {
+			for(double item : campoIn) {
+				somma=somma+item;
+				sommaQuad=sommaQuad+Math.pow(item, 2);
+			}
+			return (sommaQuad-Math.pow(somma, 2)/lenght)/(lenght-1);
 		}
-		return (sommaQuad-Math.pow(somma, 2)/lenght)/(lenght-1);
+		catch(ArithmeticException e) { 
+			System.out.println("errore calcolo");
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }
