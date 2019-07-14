@@ -32,7 +32,7 @@ public class Record{
 		this.geo=geo;
 		this.unit=unit;
 		this.instrtimeperiod=instrtimeperiod;
-		System.arraycopy(yearin, 0, this.year, 0, 17);
+		System.arraycopy(yearin, 0, this.year, 0, 18);
 			
 		}
 		
@@ -77,6 +77,16 @@ public class Record{
 		 */
 		public Double getYear(int year) {
 			return (Double)this.year[year];
+		}
+		
+		/**
+		 * 
+		 * @param anno specifico cercato
+		 * @return
+		 */
+		public double getSpecYear(int i) {
+			i = i-2000;
+			return this.year[i];
 		}
 	}
 

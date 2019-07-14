@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import it.myproject.models.*;
 import it.myproject.models.lists.DataList;
 import it.myproject.models.lists.MetaDataList;
-import it.myproject.stats.ElementiUnici;
+import it.myproject.stats.*;
 
 @RestController
 /**
@@ -25,9 +25,10 @@ public class MyController {
 	 * 
 	 * @return viene restituita la lista comprendente tutti i dati del file in formato JSON.
 	 */
-	@RequestMapping(value = "/ViewAllList", method = RequestMethod.GET)
+	@RequestMapping(value = "/Dataset", method = RequestMethod.GET)
 	public ArrayList<Record> retrieveAllRecords() {
 
+		
 		DataList Mylist = new DataList();
 		Mylist.creaLista("Euro.csv"); //crea la lista leggendo dal file
 
@@ -52,5 +53,27 @@ public class MyController {
 		el.creaLista(fieldname);
 		return el.getList();
 	} 
+	
+	@RequestMapping(value = "/Stats", method = RequestMethod.GET)
+	public Stats statistiche (@RequestParam(name = "fieldname") Double fieldname) {
+		
+		DataList Mylist = new DataList();
+		Mylist.creaLista("Euro.csv"); //crea la lista leggendo dal file
+		ArrayList<Double> campoIn = RichiestaUser.getCampo(Mylist, fieldname);
+	
+		
+		//calcolo delle statistiche:
+		int count = (campoIn.size());
+		double sum = Sum.calcolo(campoIn);
+		double avg = Average.calcolo(campoIn);
+		double max = Max.calcolo(campoIn);
+		double min = Min.calcolo(campoIn);
+		double dev_std = DevStd.calcolo(campoIn);
+		
+
+		Stats s = new Stats(count, sum, avg, max, min, dev_std);
+		return s;
+	} 
+	
 	
 }
