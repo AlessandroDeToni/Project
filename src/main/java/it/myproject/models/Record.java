@@ -32,7 +32,7 @@ public class Record{
 		this.geo=geo;
 		this.unit=unit;
 		this.instrtimeperiod=instrtimeperiod;
-		System.arraycopy(yearin, 0, this.year, 0, 17);
+		System.arraycopy(yearin, 0, this.year, 0, 18);
 			
 		}
 		
