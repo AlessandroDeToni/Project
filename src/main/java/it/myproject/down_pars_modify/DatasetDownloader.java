@@ -58,7 +58,6 @@ public class DatasetDownloader {
 		  
 		   while ( ( line = buf.readLine() ) != null ) {
 			   data+= line;
-			   System.out.println( line );
 		   }
 		 } finally {
 		   in.close();

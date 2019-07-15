@@ -1,12 +1,16 @@
 
 package it.myproject.demoApplication;
 import java.util.ArrayList;
+import java.util.Collection;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.myproject.filter.FilterUtils;
 import it.myproject.models.*;
 import it.myproject.models.lists.DataList;
 import it.myproject.models.lists.MetaDataList;
@@ -74,6 +78,21 @@ public class MyController {
 		Stats s = new Stats(count, sum, avg, max, min, dev_std);
 		return s;
 	} 
+	
+	@PostMapping(path = "/Filter") 
+	public Collection<Object> filterList (@RequestBody FilterReq req) {
+		
+		DataList MyList = new DataList();
+		MyList.creaLista("Euro.csv");
+		
+		/*se l'operatore inserito è condizionale viene eseguito il codice all'interno dell'if,
+		altrimenti viene restituita la lista filtrata dagli operatori logici*/
+		if (req.getValue2()==null) {
+			return FilterUtils.Select(MyList, req.getFieldName(), req.getOperator(), req.getValue1());
+		}
+		
+		return FilterUtils.Select(MyList, req.getFieldName(), req.getOperator(), req.getValue1(), req.getValue2());	
+	}
 	
 	
 }
