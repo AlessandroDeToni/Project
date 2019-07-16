@@ -41,7 +41,7 @@
 			"value2": "DE"
 		} 
 
-	*("or" può essere sostiuto con "and")*
+	*("or" può essere sostituito con "and")*
 	
 	- **"or", "and" (2 campi diversi);**
 	
@@ -54,6 +54,6 @@
 			"value2": 0
 		} 
 	
-	*("or" può essere sostiuto con "and")*
+	*("or" può essere sostituito con "and")*
 	
 	
