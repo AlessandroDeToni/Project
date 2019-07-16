@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.myproject.filter.FilterUtils;
+import it.myproject.filter.FilterSelect;
 import it.myproject.models.*;
 import it.myproject.models.lists.DataList;
 import it.myproject.models.lists.MetaDataList;
@@ -81,18 +81,17 @@ public class MyController {
 	
 	@PostMapping(path = "/Filter") 
 	public Collection<Object> filterList (@RequestBody FilterReq req) {
-		
+
 		DataList MyList = new DataList();
 		MyList.creaLista("Euro.csv");
-		
+
 		/*se l'operatore inserito è condizionale viene eseguito il codice all'interno dell'if,
 		altrimenti viene restituita la lista filtrata dagli operatori logici*/
 		if (req.getValue2()==null) {
-			return FilterUtils.Select(MyList, req.getFieldName(), req.getOperator(), req.getValue1());
+			return FilterSelect.Select(MyList, req.getFieldName1(), req.getOperator(), req.getValue1());
+		} else if(req.getFieldName2()==null) {
+			return FilterSelect.Select(MyList, req.getFieldName1(), req.getOperator(), req.getValue1(), req.getValue2());	
 		}
-		
-		return FilterUtils.Select(MyList, req.getFieldName(), req.getOperator(), req.getValue1(), req.getValue2());	
+		return FilterSelect.Select(MyList, req.getFieldName1(), req.getFieldName2(), req.getOperator(), req.getValue1(), req.getValue2());
 	}
-	
-	
 }
