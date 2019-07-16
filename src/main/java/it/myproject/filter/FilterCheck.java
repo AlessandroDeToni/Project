@@ -86,10 +86,12 @@ public class FilterCheck {
 	}	
 	
 	/**
-	 * Valuta se 
-	 * @param src
-	 * @param fieldName
-	 * @return
+	 * Valuta se è stato richiesto uno dei campi facenti parte di year o uno dei campi di tipo Stringa
+	 * @param src Lista di dati
+	 * @param fieldName nome del campo
+	 * @return lista di oggetti Double o String a seconda che fieldname inizi con "2" o meno.
+	 * 
+	 * @see DataList, RichiestaUser
 	 */
 	public static ArrayList<Object> checkDoS (DataList src, String fieldName) {
 		if (fieldName.startsWith("2")) {

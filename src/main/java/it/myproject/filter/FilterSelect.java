@@ -11,7 +11,7 @@ public class FilterSelect {
 
 	/**
 	 * 
-	 * @param src Lista di data che deve essere filtrata (Lista elaborata con la classe DataList)
+	 * @param src Lista di dati che deve essere filtrata (Lista elaborata con la classe DataList)
 	 * @param fieldName nome del campo su cui basare il filtraggio
 	 * @param operator operatore condizionale: "<", ">", "=="
 	 * @param value valore su cui basare la comparazione
@@ -57,7 +57,7 @@ public class FilterSelect {
 
 	/**
 	 * 
-	 * @param src lista di data che deve essere filtrata (Lista elaborata con la classe DataList)
+	 * @param src lista di dati che deve essere filtrata (Lista elaborata con la classe DataList)
 	 * @param fieldName nome del campo su cui basare il filtraggio
 	 * @param operator operatore logico: "and", "or"
 	 * @param value1  primo valore su cui basare la comparazione
@@ -91,7 +91,7 @@ public class FilterSelect {
 	
 	/**
 	 * overload di select per due campi diversi
-	 * @param src lista di data che deve essere filtrata (Lista elaborata con la classe DataList)
+	 * @param src lista di dati che deve essere filtrata (Lista elaborata con la classe DataList)
 	 * @param fieldName1 nome del primo campo su cui basare il filtraggio
 	 * @param fieldName2 nome del secondo campo su cui basare il filtraggio
 	 * @param operator operatore logico: "and", "or"
