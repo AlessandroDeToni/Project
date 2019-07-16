@@ -85,7 +85,7 @@ public class MyController {
 		DataList MyList = new DataList();
 		MyList.creaLista("Euro.csv");
 
-		/*se l'operatore inserito è condizionale viene eseguito il codice all'interno dell'if,
+		/*se l'operatore inserito è condizionale viene eseguito il codice all'interno dell' if,
 		altrimenti viene restituita la lista filtrata dagli operatori logici*/
 		if (req.getValue2()==null) {
 			return FilterSelect.Select(MyList, req.getFieldName1(), req.getOperator(), req.getValue1());

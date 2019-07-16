@@ -25,14 +25,6 @@ public class FilterSelect {
 		Collection<Object> listaIn;
 		
 		//la seguente parte di codice discerne tra getCampo per Stringhe o Double
-		/*if (fieldName.startsWith("2")) {
-			Double fieldNameD = Double.valueOf(fieldName);
-			listaIn = new ArrayList<Object>(RichiestaUser.getCampo(src, fieldNameD));
-		}
-		else {
-			listaIn = new ArrayList<Object>( RichiestaUser.getCampo(src, fieldName));
-		}*/
-		
 		listaIn = FilterCheck.checkDoS(src, fieldName);
 		
 		
@@ -69,7 +61,7 @@ public class FilterSelect {
 	public static Collection<Object> Select (DataList src, String fieldName, String operator, Object value1, Object value2){
 
 		Collection<Object> out = new ArrayList<Object>();
-		//Collection<Object> listaIn = RichiestaUser.getCampo(src, fieldName);
+		//la seguente parte di codice discerne tra getCampo per Stringhe o Double
 		Collection<Object> listaIn = FilterCheck.checkDoS(src, fieldName);
 		
 		int i = 0;
@@ -102,6 +94,7 @@ public class FilterSelect {
 	public static Collection<Object> Select (DataList src, String fieldName1, String fieldName2, String operator, Object value1, Object value2){
 
 		Collection<Object> out = new ArrayList<Object>();
+		//la seguente parte di codice discerne tra getCampo per Stringhe o Double
 		Collection<Object> listaIn1 = FilterCheck.checkDoS(src, fieldName1);
 		Collection<Object> listaIn2 = FilterCheck.checkDoS(src, fieldName2);
 		

@@ -54,6 +54,10 @@ public class FilterCheck {
 	public static boolean checkLogical(Object field, String operator, Object request1, Object request2) {
 
 		try {
+			
+			if(request1 instanceof Number) { request1 = ((Number)request1).doubleValue();}  //usando Number anche se viene riportato in input 0, 
+			if(request2 instanceof Number) {request2 = ((Number)request2).doubleValue();}	 //viene cercato 0.0 (che è come è rappresentato in lista)
+			
 			if (operator.contentEquals("or")) {
 				return (field.equals(request1) || field.equals(request2));
 			}
@@ -71,6 +75,10 @@ public class FilterCheck {
 	public static boolean checkLogical(Object field1, Object field2, String operator, Object request1, Object request2) {
 
 		try {
+			
+			if(request1 instanceof Number) {request1 = ((Number)request1).doubleValue();}  //usando Number anche se viene riportato in input 0, 
+			if(request2 instanceof Number) {request2 = ((Number)request2).doubleValue();}	 //viene cercato 0.0 (che è come è rappresentato in lista)
+			
 			if (operator.contentEquals("or")) {
 				return (field1.equals(request1) || field2.equals(request2));
 			}
