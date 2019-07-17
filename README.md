@@ -5,10 +5,13 @@
 ###### POST: 
 	
 	path: "/Filter"
+	
+*http://localhost:8080/Filter*
+
  Di seguito elenco alcuni esempi di body per effettuare la request.
  Tenere conto conto che:
  	
- - "fieldname1" e "fieldname2" possono essere un qualunque campo della classe Record ma gli anni sono scritti per esteso (2000, 2001 ecc.)
+ - "fieldname1" e "fieldname2" possono essere un qualunque campo della classe Record ("freq", "geo", "unit", "instrtimeperiod", 2000, 2001 ecc.) ma gli anni sono scritti per esteso (2000, 2001 ecc.)
  - "operator" può essere uno tra i seguenti operatori: "<",">","==","and","or". 
  	
  	- **"==", "<", ">";** 
@@ -56,4 +59,29 @@
 	
 	*("or" può essere sostituito con "and")*
 	
+###### GET:
+
+- **Restituzione dell'intera lista in formato JSON:**
 	
+		path: "/Data"
+	
+	*http://localhost:8080/Data*
+- **Restituzione della lista di metadati in formato JSON:**
+	
+		path: "/MetaData"
+	
+	*http://localhost:8080/MetaData*
+- **Restituzione degli elementi unici presenti nel dataset:**
+	
+		path: "/ElementiUnici"
+		params: key = "fieldname"
+			value = uno tra: "freq", "geo", "unit", "instrtimeperiod"
+	
+	*per es. :http://localhost:8080/ElementiUnici?fieldname="geo"*
+- **Restituzione delle statistiche in formato JSON:**
+		
+		path: "/Stats"
+		params: key = "fieldname"
+			value = uno degli anni compresi tra 2000 e 2017
+		
+	*per es. :http://localhost:8080/Stats?fieldname=2016*
