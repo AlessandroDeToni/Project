@@ -2,6 +2,7 @@ package it.myproject.models.lists;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -54,6 +55,8 @@ public class MetaDataList {
 				}
 			}
 			
+		} catch (FileNotFoundException e) {
+			System.out.println("il file non è presente nella cartella.\n");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (RuntimeException e) {

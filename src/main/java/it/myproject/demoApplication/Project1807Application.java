@@ -1,13 +1,14 @@
 package it.myproject.demoApplication;
 
-
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 
 import it.myproject.down_pars_modify.DatasetDownloader;
 import it.myproject.down_pars_modify.DatasetModifier;
 
-@SpringBootApplication  
 /**
  * Costituisce la classe principale del progetto:
  * 1) esegue il download del dataset e rimpiazza le "," con ";" per facilitare la trasposizione del dataset in una lista 
@@ -16,6 +17,8 @@ import it.myproject.down_pars_modify.DatasetModifier;
  * @author Alessandro
  *
  */
+@SpringBootApplication 
+@ComponentScan({"it.myproject.controller"}) //serve per comunicare a springboot che il controller è in un package diverso
 public class Project1807Application {
 
 	public static void main(String[] args) {

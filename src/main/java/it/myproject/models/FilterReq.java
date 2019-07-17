@@ -1,5 +1,7 @@
 package it.myproject.models;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * classe che modella la POST per utilizzare i filtri
  * @author Alessandro
@@ -7,6 +9,7 @@ package it.myproject.models;
  */
 public class FilterReq {
     
+	@NotNull //controlla che non siano tutti nulli dopo la richiesta nella POST per i filtri
 	private String fieldname1;
 	private String fieldname2;
 	private String operator;

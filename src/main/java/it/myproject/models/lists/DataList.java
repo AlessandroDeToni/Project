@@ -49,8 +49,7 @@ public class DataList implements Lista{
 			}
 		}
 		catch (FileNotFoundException e) {
-			System.out.println("il file non è presente nella cartella.\n"
-					+ "controllare di essere connessi a internet prima di lanciare l'applicazione.");
+			System.out.println("il file non è presente nella cartella.");
 		}
 		catch(IOException i) {
 			i.printStackTrace();

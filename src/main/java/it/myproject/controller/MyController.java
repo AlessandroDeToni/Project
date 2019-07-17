@@ -3,6 +3,11 @@ package it.myproject.controller;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.myproject.exceptions.EmptyListException;
 import it.myproject.filter.FilterSelect;
 import it.myproject.models.*;
 import it.myproject.models.lists.DataList;
@@ -28,14 +34,20 @@ public class MyController {
 	 * metodo che risponde alla richiesta di visione totale della lista.
 	 * 
 	 * @return viene restituita la lista comprendente tutti i dati del file in formato JSON.
+	 * @throws EmptyListException
 	 */
 	@RequestMapping(value = "/Data", method = RequestMethod.GET)
-	public ArrayList<Record> retrieveAllRecords() {
+	public ArrayList<Record> retrieveAllRecords() throws EmptyListException{
 
 		
 		DataList Mylist = new DataList();
 		Mylist.creaLista("Euro.csv"); //crea la lista leggendo dal file
-
+		
+		if (Mylist.getList().isEmpty()) {
+			throw new EmptyListException("Qualcosa è andato storto: lista vuota!\n"
+					+ "verifica che il file Euro.csv sia presente nella cartella e di essere connesso a internet");
+		}
+		
 		return Mylist.getList();
 	}
 	
@@ -43,12 +55,19 @@ public class MyController {
 	 * metodo che risponde alla richiesta di visione dei metadati della lista.
 	 * 
 	 * @return viene restituita la lista di metadati in formato JSON.
+	 * @throws EmptyListException 
 	 */
 	@RequestMapping(value = "/MetaData", method = RequestMethod.GET)
-	public ArrayList<MetaData> retrieveMetadata () {
+	public ArrayList<MetaData> retrieveMetadata () throws EmptyListException {
 		
 		MetaDataList mList = new MetaDataList();
 		mList.creaLista("Euro.csv");
+		
+		if (mList.getList().isEmpty()) {
+			throw new EmptyListException("Qualcosa è andato storto: lista vuota!\n"
+					+ "verifica che il file Euro.csv sia presente nella cartella e di essere connesso a internet");
+		}
+		
 		return mList.getList();
 	}
 	
@@ -102,9 +121,15 @@ public class MyController {
 	 * 
 	 * @see FilterReq
 	 */
-	@PostMapping(path = "/Filter") 
-	public Collection<Object> filterList (@RequestBody FilterReq req) {
 
+	@PostMapping(path = "/Filter") 
+	public Collection<Object> filterList (@Valid @RequestBody FilterReq req) throws HttpMessageNotReadableException {
+		
+		//controlla che il corpo della POST sia esauriente
+		if (req.getFieldName1()==null || req.getOperator()==null || req.getValue1()==null) {
+			throw new RuntimeException("la richiesta manca di uno o più valori fondamentali, controlla che il corpo sia corretto.");
+		}
+		
 		DataList MyList = new DataList();
 		MyList.creaLista("Euro.csv");
 
@@ -117,4 +142,6 @@ public class MyController {
 		}
 		return FilterSelect.Select(MyList, req.getFieldName1(), req.getFieldName2(), req.getOperator(), req.getValue1(), req.getValue2());
 	}
+	
+	
 }
