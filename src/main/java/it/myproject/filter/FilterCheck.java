@@ -5,6 +5,12 @@ import java.util.ArrayList;
 import it.myproject.models.RichiestaUser;
 import it.myproject.models.lists.DataList;
 
+/**
+ * classe che si occupa di eseguire alcune valutazioni utili al filtraggio della lista
+ * @author Alessandro
+ *
+ *@see FilterSelect
+ */
 public class FilterCheck {
 
 	/**
@@ -99,7 +105,8 @@ public class FilterCheck {
 	 * @param fieldName nome del campo
 	 * @return lista di oggetti Double o String a seconda che fieldname inizi con "2" o meno.
 	 * 
-	 * @see DataList, RichiestaUser
+	 * @see DataList 
+	 * @see RichiestaUser
 	 */
 	public static ArrayList<Object> checkDoS (DataList src, String fieldName) {
 		if (fieldName.startsWith("2")) {

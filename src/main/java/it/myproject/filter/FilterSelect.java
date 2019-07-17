@@ -6,7 +6,12 @@ import java.util.Iterator;
 
 import it.myproject.models.lists.DataList;
 
-
+/**
+ * Classe che si occupa di eseguire l'effettivo filtraggio della lista
+ * 
+ * @author Alessandro
+ *
+ */
 public class FilterSelect {
 
 	/**
@@ -14,7 +19,8 @@ public class FilterSelect {
 	 * @param src Lista di dati che deve essere filtrata (Lista elaborata con la classe DataList)
 	 * @param fieldName nome del campo su cui basare il filtraggio
 	 * @param operator operatore condizionale: "<", ">", "=="
-	 * @param value valore su cui basare la comparazione
+	 * @param value valore su cui basare la c
+	 * omparazione
 	 * @return lista di elementi filtrati secondo il criterio richiesto
 	 * 
 	 * @see DataList
@@ -74,6 +80,8 @@ public class FilterSelect {
 				}
 			}
 			catch (RuntimeException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			i++; //aggiorna l'indice con cui prelevare i record

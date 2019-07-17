@@ -1,6 +1,7 @@
 package it.myproject.down_pars_modify;
 
 import java.io.*;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 /**
@@ -12,20 +13,22 @@ import java.util.ArrayList;
 
 public class DatasetModifier {
 
-	ArrayList<String> lines = new ArrayList<String>();
-	String line = null;
-
-	public void  replaceComma() {
+	
+	/**
+	 *  Sostituisce le virgole contenute nel Dataset scaricato con dei ";"
+	 */
+	public static void replaceComma() {
 
 		try {
-
-
+			
 			//inizializza gli oggetti per la lettura
-
 			File f1 = new File("Euro.csv");
 			FileReader fr = new FileReader(f1);
+			
 			BufferedReader br = new BufferedReader(fr); //crea br come flusso di dati derivati dal file
 
+			ArrayList<String> lines = new ArrayList<String>();
+			String line = null;
 
 			//legge il file e sostituisce virgole con punti e virgola
 
@@ -53,8 +56,14 @@ public class DatasetModifier {
 			out.flush();
 			out.close();
 
-		} catch (Exception e) {
-			e.printStackTrace(); //segnala cosa ha causato l'errore e in che punto del codice
+		} catch (FileNotFoundException e) {
+			System.out.println("il file non è presente nella cartella.\n");
 		}
+		catch (UnknownHostException e) {
+			System.out.println("controllare di essere connessi a internet prima di lanciare l'applicazione.");
+		}
+		catch (Exception e) {
+			e.printStackTrace(); //segnala cosa ha causato l'errore e in che punto del codice
+		}	
 	}
 }

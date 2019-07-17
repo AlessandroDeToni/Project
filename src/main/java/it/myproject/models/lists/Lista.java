@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 /**
  * interfaccia comune per le liste 
- * @see MetaDataList, DataList, ElementiUnici
+ * @see MetaDataList 
+ * @see DataList 
+ * @see ElementiUnici
  * @author Alessandro
  *
  */

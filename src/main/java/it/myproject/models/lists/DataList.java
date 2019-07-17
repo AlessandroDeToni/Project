@@ -3,6 +3,7 @@ package it.myproject.models.lists;
 import java.io.BufferedReader;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,6 +48,10 @@ public class DataList implements Lista{
 				System.out.println("file vuoto");
 			}
 		}
+		catch (FileNotFoundException e) {
+			System.out.println("il file non è presente nella cartella.\n"
+					+ "controllare di essere connessi a internet prima di lanciare l'applicazione.");
+		}
 		catch(IOException i) {
 			i.printStackTrace();
 
@@ -54,6 +59,7 @@ public class DataList implements Lista{
 		catch(RuntimeException e) {
 			e.printStackTrace();
 		}
+	
 
 	}
 

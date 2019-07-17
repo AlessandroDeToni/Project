@@ -1,5 +1,5 @@
 
-package it.myproject.demoApplication;
+package it.myproject.controller;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -29,7 +29,7 @@ public class MyController {
 	 * 
 	 * @return viene restituita la lista comprendente tutti i dati del file in formato JSON.
 	 */
-	@RequestMapping(value = "/Dataset", method = RequestMethod.GET)
+	@RequestMapping(value = "/Data", method = RequestMethod.GET)
 	public ArrayList<Record> retrieveAllRecords() {
 
 		
@@ -39,7 +39,12 @@ public class MyController {
 		return Mylist.getList();
 	}
 	
-	@RequestMapping(value = "/MetaDati", method = RequestMethod.GET)
+	/**
+	 * metodo che risponde alla richiesta di visione dei metadati della lista.
+	 * 
+	 * @return viene restituita la lista di metadati in formato JSON.
+	 */
+	@RequestMapping(value = "/MetaData", method = RequestMethod.GET)
 	public ArrayList<MetaData> retrieveMetadata () {
 		
 		MetaDataList mList = new MetaDataList();
@@ -47,6 +52,11 @@ public class MyController {
 		return mList.getList();
 	}
 	
+	/**
+	 * metodo che risponde alla richiesta di visione degli elementi unici della lista.
+	 * @param fieldname Stringa rappresentante uno dei campi Stringa del dataset: "freq", "geo", "unit", "instrtimeperiod".
+	 * @return viene restituita la lista di elementi unici con le rispettive occorrenze.
+	 */
 	@RequestMapping(value = "/ElementiUnici", method = RequestMethod.GET)
 	public ArrayList<ElementoUnico> elemCounter (@RequestParam(name = "fieldname") String fieldname) {
 		
@@ -58,6 +68,12 @@ public class MyController {
 		return el.getList();
 	} 
 	
+	/**
+	 * metodo che risponde alla richiesta di visione delle statistiche sugli elementi numerici della lista.
+	 * 
+	 * @param fieldname anno (numero compreso tra 2000 e 2017) su cui si vogliono ottenere le statistiche.
+	 * @return vengono restituite statiste riguardati: somma, media, minimo, massimo, deviazione standard.
+	 */
 	@RequestMapping(value = "/Stats", method = RequestMethod.GET)
 	public Stats statistiche (@RequestParam(name = "fieldname") Double fieldname) {
 		
@@ -79,6 +95,13 @@ public class MyController {
 		return s;
 	} 
 	
+	/**
+	 * 
+	 * @param req oggetto della classe FilterReq che modella la POST
+	 * @return lista filtrata secondo il criterio scelto.
+	 * 
+	 * @see FilterReq
+	 */
 	@PostMapping(path = "/Filter") 
 	public Collection<Object> filterList (@RequestBody FilterReq req) {
 

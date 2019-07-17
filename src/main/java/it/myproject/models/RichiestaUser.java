@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import it.myproject.models.lists.DataList;
-import it.myproject.models.lists.*;
 
 /**
  * Classe che permette di ottenere una collection di oggetti relativi al campo richiesto dall'utente
