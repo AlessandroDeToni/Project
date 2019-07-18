@@ -88,4 +88,4 @@
 	*("or" può essere sostituito con "and")*
 	
 ### Pagina di Errore:
-La pagina di errore di default è stata personalizzata, se si utilizza postman utilizzare per la visione del risultato "Preview" e non "Pretty".
+La pagina di errore di default è stata personalizzata, se si utilizza postman utilizzare per una visione corretta del risultato "Preview" e non "Pretty".
