@@ -2,6 +2,34 @@
 
 ### Esempi di Test
 
+###### GET:
+
+- **Restituzione dell'intera lista in formato JSON:**
+	
+		path: "/Data"
+	
+	*http://localhost:8080/Data*
+- **Restituzione della lista di metadati in formato JSON:**
+	
+		path: "/MetaData"
+	
+	*http://localhost:8080/MetaData*
+- **Restituzione degli elementi unici presenti nel dataset:**
+	
+		path: "/ElementiUnici"
+		params: key = "fieldname"
+			value = uno tra: "freq", "geo", "unit", "instrtimeperiod"
+	
+	*per es. :http://localhost:8080/ElementiUnici?fieldname="geo"*
+- **Restituzione delle statistiche in formato JSON:**
+		
+		path: "/Stats"
+		params: key = "fieldname"
+			value = uno degli anni compresi tra 2000 e 2017
+		
+	*per es. :http://localhost:8080/Stats?fieldname=2016*
+
+
 ###### POST: 
 	
 	path: "/Filter"
@@ -59,29 +87,5 @@
 	
 	*("or" può essere sostituito con "and")*
 	
-###### GET:
-
-- **Restituzione dell'intera lista in formato JSON:**
-	
-		path: "/Data"
-	
-	*http://localhost:8080/Data*
-- **Restituzione della lista di metadati in formato JSON:**
-	
-		path: "/MetaData"
-	
-	*http://localhost:8080/MetaData*
-- **Restituzione degli elementi unici presenti nel dataset:**
-	
-		path: "/ElementiUnici"
-		params: key = "fieldname"
-			value = uno tra: "freq", "geo", "unit", "instrtimeperiod"
-	
-	*per es. :http://localhost:8080/ElementiUnici?fieldname="geo"*
-- **Restituzione delle statistiche in formato JSON:**
-		
-		path: "/Stats"
-		params: key = "fieldname"
-			value = uno degli anni compresi tra 2000 e 2017
-		
-	*per es. :http://localhost:8080/Stats?fieldname=2016*
+### Pagina di Errore:
+La pagina di errore di default è stata personalizzata, se si utilizza postman utilizzare per la visione del risultato "Preview" e non "Pretty".
