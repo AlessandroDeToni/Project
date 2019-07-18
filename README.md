@@ -91,4 +91,7 @@
 La pagina di errore di default è stata personalizzata, se si utilizza postman utilizzare per una visione corretta del risultato "Preview" e non "Pretty".
 
 ### JavaDoc
-![alt text] (https://github.com/AlessandroDeToni/Project/blob/master/doc/allpackages-index.html)
+
+### UML
+
+![alt text](https://github.com/AlessandroDeToni/Project/blob/master/True_class_diagram.jpg)
