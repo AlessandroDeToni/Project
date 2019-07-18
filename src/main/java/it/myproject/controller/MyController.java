@@ -34,7 +34,7 @@ public class MyController {
 	 * metodo che risponde alla richiesta di visione totale della lista.
 	 * 
 	 * @return viene restituita la lista comprendente tutti i dati del file in formato JSON.
-	 * @throws EmptyListException
+	 * @throws EmptyListException lanciata in caso di lista vuota
 	 */
 	@RequestMapping(value = "/Data", method = RequestMethod.GET)
 	public ArrayList<Record> retrieveAllRecords() throws EmptyListException{
@@ -55,7 +55,7 @@ public class MyController {
 	 * metodo che risponde alla richiesta di visione dei metadati della lista.
 	 * 
 	 * @return viene restituita la lista di metadati in formato JSON.
-	 * @throws EmptyListException 
+	 * @throws EmptyListException lanciata in caso di lista vuota
 	 */
 	@RequestMapping(value = "/MetaData", method = RequestMethod.GET)
 	public ArrayList<MetaData> retrieveMetadata () throws EmptyListException {

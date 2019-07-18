@@ -26,7 +26,7 @@ public class DataList implements Lista{
 	 * creaLista prende in input il nome del file da cui vogliamo leggere i dati e li inserisce in una lista
 	 * di oggetti del tipo Record (chiaramente i campi del file devono essere concordi con quelli della classe Record).
 	 * 
-	 * @param filename
+	 * @param filename nome del file da cui ottenere i dati
 	 */
 	public void creaLista(String filename) {
 		File f =new File(filename);   //da passare al buffer
@@ -63,10 +63,10 @@ public class DataList implements Lista{
 	}
 
 	/**
-	 * @throws 
+	 *
 	 * @return restituisce la lista di oggetti Record
 	 */
-	public ArrayList<Record> getList () throws NullPointerException{ 
+	public ArrayList<Record> getList () { 
 		return this.data;
 	}
 

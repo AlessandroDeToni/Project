@@ -18,7 +18,7 @@ public class FilterSelect {
 	 * 
 	 * @param src Lista di dati che deve essere filtrata (Lista elaborata con la classe DataList)
 	 * @param fieldName nome del campo su cui basare il filtraggio
-	 * @param operator operatore condizionale: "<", ">", "=="
+	 * @param operator operatore condizionale: "{@literal <}", "{@literal >}", "=="
 	 * @param value valore su cui basare la c
 	 * omparazione
 	 * @return lista di elementi filtrati secondo il criterio richiesto

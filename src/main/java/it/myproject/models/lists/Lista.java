@@ -1,6 +1,7 @@
 package it.myproject.models.lists;
 
 import java.util.ArrayList;
+import it.myproject.stats.*;
 
 /**
  * interfaccia comune per le liste 

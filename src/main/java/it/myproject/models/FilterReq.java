@@ -22,7 +22,7 @@ public class FilterReq {
 	 * @param value2 secondo valore su cui si basa la comparazione dei filtri
 	 * @param fieldname1 campo di Record in cui cercare il primo valore
 	 * @param fieldname2 campo di Record in cui cercare il secondo valore
-	 * @param operator operatore richiesto per la comparazione: "and", "or", ">", "<", "=="
+	 * @param operator operatore richiesto per la comparazione: "and", "or", "{@literal >}", "{@literal <}", "=="
 	 * 
 	 * @see Record 
 	 */

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * classe che si occupa degli errore di richiesta dal client, è una personalizzazione
+ * classe che si occupa di errori generici di richiesta dal client, è una personalizzazione
  * della pagina di errore che verrebbe visualizzata di default
  * @author Alessandro
  *

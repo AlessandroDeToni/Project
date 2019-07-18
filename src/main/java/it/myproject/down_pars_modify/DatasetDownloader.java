@@ -30,8 +30,8 @@ public class DatasetDownloader {
 	 * @param url  url del dataset
      * @param fileName  nome del file .csv che verrà creato
      * <p>
-     * genero un oggetto di tipo stream{@link InputStream} per prendere in input i dati dalla connessione url{@link URL.openConnection#}
-     * 
+     * genero un oggetto di tipo stream per prendere in input i dati dalla connessione url
+     * @see InputStream
 	 */
 	public static void downloader (String url, String fileName){
 		try {

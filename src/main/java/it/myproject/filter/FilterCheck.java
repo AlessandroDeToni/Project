@@ -16,7 +16,7 @@ public class FilterCheck {
 	/**
 	 * 
 	 * @param value oggetto che va comparato al valore "value" tramite l'operatore selezionato
-	 * @param operator operatore condizionale: "<", ">", "=="
+	 * @param operator operatore condizionale: "{@literal <}", "{@literal >}", "=="
 	 * @param th "threshold": (soglia) valore con cui eseguire la comparazione/filtraggio
 	 * @return restituisce vero o falso a seconda del fatto che la condizione sia soddisfatta
 	 */

@@ -30,8 +30,8 @@ public class ElementiUnici implements Lista{
 	
 	/**
 	 * 
-	 * @param in
-	 * @param fieldName
+	 *
+	 * @param fieldName nome del file di cui si vuole creare una lista
 	 * 
 	 * Crea una lista di oggetti "ElementoUnico"
 	 * @see ElementoUnico
@@ -68,9 +68,8 @@ public class ElementiUnici implements Lista{
 	/**
 	 * 
 	 * @return Array di oggetti ElementoUnico, cioé un array contenente gli elementi che compaiono nel data set e le rispettive occorrenze
-	 * @throws NullPointerException
 	 */
-	public ArrayList<ElementoUnico> getList() throws NullPointerException{
+	public ArrayList<ElementoUnico> getList() {
 		return this.elementi;
 	}
 	

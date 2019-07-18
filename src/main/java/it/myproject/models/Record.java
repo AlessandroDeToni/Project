@@ -20,11 +20,11 @@ public class Record{
 		
 		/**
 		 * 
-		 * @param freq
-		 * @param geo
-		 * @param unit
-		 * @param instrtimeperiod
-		 * @param year  è un array statico, dato che la dimensione in input sarà sampre costante
+		 * @param freq campo FREQ dataset
+		 * @param geo campo GEO dataset
+		 * @param unit campo UNIT dataset
+		 * @param instrtimeperiod campo AID_INSTR/TIMEPERIOD dataset
+		 * @param yearin è un array statico, dato che la dimensione in input sarà sampre costante
 		 */
 		public Record(String freq, String geo, String unit, String instrtimeperiod, double[] yearin) {
 			
@@ -72,8 +72,8 @@ public class Record{
 		}
 		/**
 		 * overload del metodo, restituisce l'oggetto Double dell'anno specificato
-		 * @param year
-		 * @return
+		 * @param year array contenenti i campi anno del dataset
+		 * @return l'array contenente tutti gli anni
 		 */
 		public Double getYear(int year) {
 			return (Double)this.year[year];
@@ -81,8 +81,8 @@ public class Record{
 		
 		/**
 		 * 
-		 * @param anno specifico cercato
-		 * @return
+		 * @param i specifico cercato scritto come usa normalmente
+		 * @return l'anno cercato
 		 */
 		public double getSpecYear(int i) {
 			i = i-2000;

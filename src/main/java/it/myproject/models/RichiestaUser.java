@@ -17,7 +17,7 @@ public class RichiestaUser {
 	
 	/**
 	 * 
-	 * @param in Lista in ingresso
+	 * @param in Lista in ingresso (del tipo DataList)
 	 * @param fieldName nome del campo di cui si vuole una collection
 	 * @return Restituisce una collection di oggetti facenti parte del campo del dataset selezionato.
 	 */
@@ -52,7 +52,12 @@ public class RichiestaUser {
 		return out;
 	} 		
 	
-	//overload di getCampo per i double 
+	/**
+	 * ovrload di getCampo per i double
+	 * @param in Lista in ingresso (del tipo DataList)
+	 * @param fieldName nome del campo di cui si vuole una collection
+	 * @return Restituisce una collection di Double facenti parte del campo del dataset selezionato.
+	 */
 	public static ArrayList<Double> getCampo(DataList in, Double fieldName) {
 		
 		ArrayList<Double> out = new ArrayList<Double>();

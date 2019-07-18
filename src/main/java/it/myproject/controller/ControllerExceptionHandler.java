@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import it.myproject.exceptions.EmptyListException;
 
 /**
- * classe che si occupa di gestire le eccezioni lanciate dal controller
+ * classe che si occupa di gestire le eccezioni specifiche lanciate dal controller
  * @author Alessandro
  *
  */
@@ -20,7 +20,7 @@ public class ControllerExceptionHandler {
 	
 	/** 
 	 * Metodo che gestisce l'eccezione EmptyListException lanciata dal controller
-	 * @param e
+	 * @param e eccezione
 	 * @return messaggio che comunica che la lista è vuota
 	 * 
 	 * @see EmptyListException
@@ -32,7 +32,7 @@ public class ControllerExceptionHandler {
 	
 	/**
 	 * Metodo che gestisce l'eccezione MissingServletRequestParameterException lanciata dal controller
-	 * @param e
+	 * @param e eccezione
 	 * @return messaggio che comunica che non hai inserito il parametro necessario per la richiesta
 	 */
 	@ExceptionHandler(MissingServletRequestParameterException.class)
@@ -43,7 +43,7 @@ public class ControllerExceptionHandler {
 	
 	/**
 	 * Metodo che gestisce l'eccezione HttpRequestMethodNotSupportedException lanciata dal controller
-	 * @param e
+	 * @param e eccezione
 	 * @return messaggio che comunica che si è confuso GET con POST o viceversa nel fare la richiesta
 	 */
 	@ExceptionHandler (HttpRequestMethodNotSupportedException.class)
@@ -54,7 +54,7 @@ public class ControllerExceptionHandler {
 	
 	/**
 	 * Metodo che gestisce l'eccezione MethodArgumentNotValidException lanciata dal controller
-	 * @param e
+	 * @param e eccezione
 	 * @return messaggio che comunica che il corpo della POST non è stato scritto correttamente
 	 */
 	
