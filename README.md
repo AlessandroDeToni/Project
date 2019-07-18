@@ -20,7 +20,7 @@
 		params: key = "fieldname"
 			value = uno tra: "freq", "geo", "unit", "instrtimeperiod"
 	
-	*per es. :http://localhost:8080/ElementiUnici?fieldname="geo"*
+	*per es. :http://localhost:8080/ElementiUnici?fieldname=geo*
 - **Restituzione delle statistiche in formato JSON:**
 		
 		path: "/Stats"
