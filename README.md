@@ -95,5 +95,11 @@ Contenuta nella cartella "doc" del progetto.
 
 ## UML
 
+#### >Use Case Diagram
+![alt text](https://github.com/AlessandroDeToni/Project/blob/master/NewModel_Use_Case%20Diagram.jpg)
+
 #### >Class Diagram
 ![alt text](https://github.com/AlessandroDeToni/Project/blob/master/True_class_diagram.jpg)
+
+#### >Sequence Diagram
+![alt text](https://github.com/AlessandroDeToni/Project/blob/master/Sequence_Diagram.jpg)
