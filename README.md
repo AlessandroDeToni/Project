@@ -87,5 +87,8 @@
 	
 	*("or" può essere sostituito con "and")*
 	
-### Pagina di Errore:
+### Pagina di Errore
 La pagina di errore di default è stata personalizzata, se si utilizza postman utilizzare per una visione corretta del risultato "Preview" e non "Pretty".
+
+### JavaDoc
+![alt text] doc/allpackages-index.html
